@@ -1,0 +1,17 @@
+hash: 1779f5a95ecadfe395e41b3f94e5b45baa6d1c442d1d352b0041c01f8ebc1b11
+updated: 2019-01-17T16:17:47.9526779+08:00
+imports:
+- name: github.com/emirpasic/gods
+  version: 1615341f118ae12f353cc8a983f35b584342c9b3
+  subpackages:
+  - containers
+  - lists
+  - lists/arraylist
+  - utils
+- name: github.com/Masterminds/semver
+  version: c7af12943936e8c39859482e61f0574c2fd7fc75
+- name: golang.org/x/net
+  version: be1c187aa6c66b9daa1d9461c228d17e9dd2cab7
+  repo: https://github.com/golang/net
+  vcs: git
+testImports: []

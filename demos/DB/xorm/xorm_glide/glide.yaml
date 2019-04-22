@@ -1,0 +1,10 @@
+package: GoDev/demos/DB/xorm/xorm_glide
+import:
+- package: github.com/astaxie/beego
+  version: ^1.11.1
+  subpackages:
+  - logs
+- package: github.com/go-sql-driver/mysql
+  version: ^1.4.1
+- package: github.com/go-xorm/xorm
+  version: ^0.7.1

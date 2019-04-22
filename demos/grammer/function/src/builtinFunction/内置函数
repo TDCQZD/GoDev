@@ -1,0 +1,3 @@
+len：用来求长度，比如string、array、slice、map、channel
+new：用来分配内存，主要用来分配值类型，比如int、float32,struct...返回的是指针
+make：用来分配内存，主要用来分配引用类型，比如chan、map、slice。

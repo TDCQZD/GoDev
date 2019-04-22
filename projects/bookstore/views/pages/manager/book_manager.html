@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>图书管理</title>
+	<link type="text/css" rel="stylesheet" href="/static/css/style.css">
+	<script src="/static/script/jquery-1.7.2.js"></script>
+	<script>
+		$(function () {
+			//图书删除确认
+			$(".deletebook").click(function () {
+				var title = $(this).attr("id")
+				return confirm(`确定要删除【${title}】?`)
+			});
+			//分页book
+			$("#sub_pageBook").click(function () {
+				//获取输入的页码
+				var pageNo = $("#pn_input").val();
+				location = "/bookpagebyback?pageNo=" + pageNo
+			});
+		})
+	</script>
+
+</head>
+
+<body>
+
+	<div id="header">
+		<img class="logo_img" alt="" src="/static/img/blockchain.jpg">
+		<span class="wel_word">图书管理系统</span>
+		<div>
+			<a href="/bookpagebyback">图书管理</a>
+			<a href="/mainbookpage">返回商城</a>
+		</div>
+	</div>
+
+	<div id="main">
+		<table>
+			<tr>
+				<td>名称</td>
+				<td>价格</td>
+				<td>作者</td>
+				<td>销量</td>
+				<td>库存</td>
+				<td colspan="2">操作</td>
+			</tr>
+			{{range .Books}}
+			<tr>
+				<td>{{.Title}}</td>
+				<td>{{.Price}}</td>
+				<td>{{.Author}}</td>
+				<td>{{.Sales}}</td>
+				<td>{{.Stock}}</td>
+				<td><a href="/editbook?bookId={{.ID}}">修改</a></td>
+				<td><a id="{{.Title}}" class="deletebook" href="/deletebook?bookId={{.ID}}">删除</a></td>
+			</tr>
+			{{end}}
+
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td><a href="/pages/manager/book_add.html">添加图书</a></td>
+			</tr>
+		</table>
+		<div id="page_nav">
+			{{if .IsHasPrev}}
+			<a href="/bookpagebyback">首页</a>
+			<a href="/bookpagebyback?pageNo={{.GetPrevPageNo}}">上一页</a>
+			{{end}}
+			当前是第{{.PageNo}}页，共{{.TotalPageNo}}页，共{{.TotalRecord}}条记录
+			{{if .IsHasNext}}
+			<a href="/bookpagebyback?pageNo={{.GetNextPageNo}}">下一页</a>
+			<a href="/bookpagebyback?pageNo={{.TotalPageNo}}">末页</a>
+			{{end}}
+			到第<input value="{{.PageNo}}" name="pn" id="pn_input" />页
+			<input type="button" value="确定" id="sub_pageBook">
+		</div>
+
+
+	</div>
+	<div id="bottom">
+		<span>
+			区块链书城.Copyright &copy;2018
+		</span>
+	</div>
+</body>
+
+</html>

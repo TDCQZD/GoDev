@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>书城首页</title>
+	<link type="text/css" rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+	<div id="header">
+		<img class="logo_img" alt="" src="/static/img/blockchain.jpg">
+		<span class="wel_word">网上书城</span>
+		{{if .IsLogin}}
+		<div>
+			<span>欢迎<span class="um_span">{{.UserName}}</span>光临区块链书城</span>
+			<a href="/cartquery">购物车</a>
+			<a href="/queryOrders">订单管理</a>
+			<a href="/logout">注销</a>&nbsp;&nbsp;
+			<a href="/mainbookpage">返回</a>
+		</div>
+		{{else}}
+		<div>
+			<a href="/pages/user/login.html">登录</a> |
+			<a href="/pages/user/regist.html">注册</a> &nbsp;&nbsp;
+			<a href="/cartquery">购物车</a>		
+			<a href="/queryOrders">订单管理</a>
+			<a href="/pages/manager/manager.html">后台管理</a>
+		</div>
+		{{end}}
+	</div>
+
+	<div id="main">
+		<div id="book">
+
+			<div class="book_cond">
+				<form action="/mainbookpage" method="POST">
+					价格：<input type="text" name="min"> 元 - <input type="text" name="max"> 元 <button>查询</button>
+				</form>
+
+			</div>
+			<div style="text-align: center">
+				<!-- <span>您的购物车中有3件商品</span> -->
+				<div>
+					<span style="color: red" id="bookMsg"></span></span>
+				</div>
+				<!-- <div>
+					您刚刚将<span style="color: red">时间简史</span>加入到了购物车中
+				</div> -->
+			</div>
+			{{range .PageInfor.Books}}
+			<div class="b_list">
+				<div class="img_div">
+					<img class="book_img" alt="" src="{{.ImgPath}}" />
+				</div>
+				<div class="book_info">
+					<div class="book_name">
+						<span class="sp1">书名:</span>
+						<span class="sp2">{{.Title}}</span>
+					</div>
+					<div class="book_author">
+						<span class="sp1">作者:</span>
+						<span class="sp2">{{.Author}}</span>
+					</div>
+					<div class="book_price">
+						<span class="sp1">价格:</span>
+						<span class="sp2">￥{{.Price}}</span>
+					</div>
+					<div class="book_sales">
+						<span class="sp1">销量:</span>
+						<span class="sp2">{{.Sales}}</span>
+					</div>
+					<div class="book_amount">
+						<span class="sp1">库存:</span>
+						<span class="sp2">{{.Stock}}</span>
+					</div>
+					<div class="book_add">
+						{{if .Stock}}
+						<button id="{{.ID}}" class="cartAdd">加入购物车</button>
+						{{else}}
+						<span style="color:red">商家补货中。。。</span>
+						{{end}}
+					</div>
+				</div>
+			</div>
+			{{end}}
+		</div>
+
+		<div id="page_nav">
+			{{if .PageInfor.IsHasPrev}}
+			<a href="/mainbookpage?min={{.PageInfor.MinPrice}}&max={{.PageInfor.MaxPrice}}">首页</a>
+			<a href="/mainbookpage?pageNo={{.PageInfor.GetPrevPageNo}}&min={{.PageInfor.MinPrice}}&max={{.PageInfor.MaxPrice}}">上一页</a>
+			{{end}}
+			当前是第{{.PageInfor.PageNo}}页，共{{.PageInfor.TotalPageNo}}页，共{{.PageInfor.TotalRecord}}条记录
+			{{if .PageInfor.IsHasNext}}
+			<a href="/mainbookpage?pageNo={{.PageInfor.GetNextPageNo}}&min={{.PageInfor.MinPrice}}&max={{.PageInfor.MaxPrice}}">下一页</a>
+			<a href="/mainbookpage?pageNo={{.PageInfor.TotalPageNo}}&min={{.PageInfor.MinPrice}}&max={{.PageInfor.MaxPrice}}">末页</a>
+			{{end}}
+			到第<input value="{{.PageInfor.PageNo}}" name="pn" id="pn_input" />页
+			<input type="button" value="确定" id="sub_pageBook">
+		</div>
+
+	</div>
+
+	<div id="bottom">
+		<span>
+			区块链书城.Copyright &copy;2018
+		</span>
+	</div>
+</body>
+<script src="/static/script/jquery-1.7.2.js"></script>
+<script>
+	$(function () {
+
+		//分页book
+		$("#sub_pageBook").click(function () {
+
+			//获取输入的页码
+			var pageNo = $("#pn_input").val();
+			location = "/mainbookpage?pageNo=" + pageNo + "&min={{.PageInfor.MinPrice}}&max={{.PageInfor.MaxPrice}}"
+		});
+		//购物车添加操作
+		$(".cartAdd").click(function () {
+
+			//获取要添加的图书的id
+			var bookId = $(this).attr("id");
+			// alert(bookId + "添加购物车")
+			//设置请求的url
+			var url = "/cartadd"
+			//设置请求参数
+			var param = { "bookId": bookId }
+			//发送Ajax请求
+			$.post(url, param, function (res) {
+				//如果以后未登录,直接跳转到登录界面
+				if (res == "用户未登录！") {
+					location = "/pages/user/login.html"
+				} else {
+					//将响应信息设置到span中
+					$("#bookMsg").text(res).show(300).delay(3000).hide(300)
+					// alert(res)
+				}
+
+			});
+		});
+	})
+</script>
+
+</html>

@@ -1,0 +1,20 @@
+1、时间和日期相关函数，需要导入 time包
+2、time.Time 类型，用于表示时间
+3、获取到当前时间的方法：now := time.Now() // now 的类型就是time.Time
+4、如何获取到其它的日期信息
+5、格式化 日期时间
+6、时间的常量
+        Nanosecond  Duration = 1 //纳秒
+        Microsecond          = 1000 * Nanosecond  //微秒
+        Millisecond          = 1000 * Microsecond //毫秒
+        Second               = 1000 * Millisecond //秒
+        Minute               = 60 * Second //分钟
+        Hour                 = 60 * Minute //小时
+
+
+        常量的作用:在程序中可用于获取指定时间单位的时间，比如想得到100毫秒
+        100 * time. Millisecond
+
+7、休眠
+    func Sleep(d Duration)  
+8、获取当前unix 时间戳  和 unixnano 时间戳。(作用是可以获取随机数字)

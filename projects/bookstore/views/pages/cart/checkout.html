@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>结算页面</title>
+<link type="text/css" rel="stylesheet" href="/static/css/style.css" >
+<style type="text/css">
+	h1 {
+		text-align: center;
+		margin-top: 200px;
+	}
+</style>
+</head>
+<body>
+	
+	<div id="header">
+			<img class="logo_img" alt="" src="/static/img/blockchain.jpg" >
+			<span class="wel_word">购物车结算</span>			
+			{{if .IsLogin}}
+			<div>
+				<span>欢迎<span class="um_span">{{.UserName}}</span>光临区块链书城</span>
+				<a href="/cartquery">购物车</a>
+				<a href="/logout">注销</a>&nbsp;&nbsp;
+				<a href="/mainbookpage">返回</a>
+			</div>
+			{{else}}
+			<div>
+				<a href="/pages/user/login.html">登录</a> |
+				<a href="/pages/user/regist.html">注册</a> &nbsp;&nbsp;
+				<a href="/cartquery">购物车</a>
+				<a href="/pages/manager/manager.html">后台管理</a>
+			</div>
+			{{end}}
+	</div>
+	
+	<div id="main">
+		
+		<h1>你的订单已结算，订单号为<span style="color:red">{{.OrderID}}</span></h1>
+		
+	
+	</div>
+	
+	<div id="bottom">
+		<span>
+			区块链书城.Copyright &copy;2018
+		</span>
+	</div>
+</body>
+</html>

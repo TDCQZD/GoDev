@@ -1,0 +1,18 @@
+<html>
+
+<head>
+    <meta />
+</head>
+
+<body>
+    <div>从后台得到的数据是：{{.}}</div>
+    <!-- template2.html模板 -->
+    <ins>{{ template "template2.html"}}</ins>
+    <div>template.html文件内容结束</div>
+    <hr/>
+    <div>template.html模板文件中的数据传递给template2.html模板文件</div>
+    <ins> {{ template "template2.html" . }}</ins>
+
+</body>
+
+</html>

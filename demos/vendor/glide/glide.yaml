@@ -1,0 +1,12 @@
+package: goCode/vendor/glide
+import:
+- package: github.com/emirpasic/gods
+  version: ~1.12.0
+  subpackages:
+  - lists/arraylist
+  - utils
+- package: golang.org/x/net
+  repo: https://github.com/golang/net
+  vcs: git
+- package: github.com/Masterminds/semver
+  version: v1.4.2

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>区块链会员登录页面</title>
+	<link type="text/css" rel="stylesheet" href="/static/css/style.css">
+	<script src="/static/script/jquery-1.7.2.js"></script>
+	<script>
+		$(function () {
+			/*登录单击事件处理*/
+			//给登录按钮绑定单击事件
+			$("#sub_btn").click(function () {
+				//获取用户输入的用户名
+				/*
+					val()：用来获取或设置input中的value属性值
+					对象.val()：获取value属性值
+					对象.val("new Value")：设置value属性值
+				*/
+				const username = $("#username").val()
+				//判断用户名是否为空
+				if (username == "") {
+					alert("用户名不能为空！");
+					//取消默认行为
+					return false;
+				}
+				const password = $("#password").val()
+				if (password == "") {
+					alert("密码不能为空！");
+					return false;
+				}
+
+			});
+
+			/*错误信息处理*/
+			//切换span标签中的信息
+			if (`{{.}}` == "用户名或密码不正确！") {
+				//设置span标签中的文本值
+				$("#msg").text("用户名或密码不正确！");
+			}
+		});
+	</script>
+</head>
+
+<body>
+	<div id="login_header">
+		<img class="logo_img" alt="" src="/static/img/blockchain.jpg">
+	</div>
+
+	<div class="login_banner">
+
+		<div id="l_content">
+			<span class="login_word">欢迎登录</span>
+		</div>
+
+		<div id="content">
+			<div class="login_form">
+				<div class="login_box">
+					<div class="tit">
+						<h1>区块链会员</h1>
+						<a href="/pages/user/regist.html">立即注册</a>
+					</div>
+					<div class="msg_cont">
+						<b></b>
+						<span class="errorMsg" id="msg">请输入用户名和密码</span>
+					</div>
+					<div class="form">
+						<form action="/login" method="POST">
+							<label>用户名称：</label>
+							<input class="itxt" type="text" placeholder="请输入用户名" autocomplete="off" tabindex="1" name="username" id="username" />
+							<br />
+							<br />
+							<label>用户密码：</label>
+							<input class="itxt" type="password" placeholder="请输入密码" autocomplete="off" tabindex="1" name="password" id="password" />
+							<br />
+							<br />
+							<br />
+							<input type="submit" value="登录" id="sub_btn" />
+						</form>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="bottom">
+		<span>
+			区块链书城.Copyright &copy;2018
+		</span>
+	</div>
+</body>
+
+</html>

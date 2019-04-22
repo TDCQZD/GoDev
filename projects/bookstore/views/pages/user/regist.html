@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>区块链会员注册页面</title>
+	<link type="text/css" rel="stylesheet" href="/static/css/style.css">
+	<style type="text/css">
+		.login_form {
+			height: 420px;
+			margin-top: 25px;
+		}
+	</style>
+	<script src="/static/script/jquery-1.7.2.js"></script>
+	<script>
+		$(function () {
+			$("#sub_btn").click(function () {
+				const username = $("#username").val()
+				const password = $("#password").val()
+				const repwd = $("#repwd").val()
+				const email = $("#email").val()
+				var usernameReg = /^[a-zA-Z0-9_-]{3,16}$/;
+				if (username == "") {
+					alert("用户名不能为空！");
+					return false;
+				}
+				if (!usernameReg.test(username)) {
+					alert("请输入3-16位的字母、数字、下划线或减号的用户名！");
+					return false;
+				}
+				var passwordReg = /^[a-zA-Z0-9_-]{6,18}$/;
+				if (password == "") {
+					alert("密码不能为空！");
+					return false;
+				}
+				if (!passwordReg.test(password)) {
+					alert("请输入6-18位的字母、数字、下划线或减号的密码！")
+					return false;
+				}
+
+				if (repwd == "") {
+					alert("确认密码不能为空！");
+					return false;
+				}
+				if (!passwordReg.test(repwd)) {
+					alert("请输入6-18位的字母、数字、下划线或减号的密码！")
+					return false;
+				}
+
+				if (repwd != password) {
+					alert("两次输入的密码不一致！");
+					return false;
+				}
+				var emailReg = /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/;
+				if (email == "") {
+					alert("邮箱不能为空！");
+					return false;
+				}
+				if (!emailReg.test(email)) {
+					alert("邮箱格式不正确！");
+					return false;
+				}
+			});
+
+			/*注册错误信息提示*/
+			//将显示错误提示信息的span标签隐藏
+			$("#msg").hide();
+			/*Ajax 请求 验证用户是否已存在*/
+			$("#username").change(function () {
+				//获取用户输入的用户名
+				var username = $(this).val();
+				//设置请求地址
+				var url = "/verifyName";
+				//设置请求参数
+				// var params = `{username: ${username} }`;//JQuery 模板字符串使用有问题
+				var params = { "username": username };
+				//发送Ajax请求
+				$.post(url, params, function (res) {
+					//将显示提示信息的span元素显示
+					$("#msg").show();
+					//将响应信息设置到span元素中
+					$("#msg").html(res);
+				});
+			})
+
+			
+		});
+	</script>
+</head>
+
+<body>
+	<div id="login_header">
+		<img class="logo_img" alt="" src="/static/img/blockchain.jpg">
+	</div>
+
+	<div class="login_banner">
+
+		<div id="l_content">
+			<span class="login_word">欢迎注册</span>
+		</div>
+
+		<div id="content">
+			<div class="login_form">
+				<div class="login_box">
+					<div class="tit">
+						<h1>注册区块链会员</h1>
+						<span class="errorMsg" id="msg">{{.}}</span>
+					</div>
+					<br>
+					<div class="form">
+						<form action="/regist" method="POST">
+							<label>用户名称：</label>
+							<input class="itxt" type="text" placeholder="请输入用户名" autocomplete="off" tabindex="1" name="username" id="username" />
+							<br />
+							<br />
+							<label>用户密码：</label>
+							<input class="itxt" type="password" placeholder="请输入密码" autocomplete="off" tabindex="1" name="password" id="password" />
+							<br />
+							<br />
+							<label>确认密码：</label>
+							<input class="itxt" type="password" placeholder="确认密码" autocomplete="off" tabindex="1" name="repwd" id="repwd" />
+							<br />
+							<br />
+							<label>电子邮件：</label>
+							<input class="itxt" type="text" placeholder="请输入邮箱地址" autocomplete="off" tabindex="1" name="email" id="email" />
+							<br />
+							<br />
+							<br />
+							<input type="submit" value="注册" id="sub_btn" />
+						</form>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="bottom">
+		<span>
+			区块链书城.Copyright &copy;2018
+		</span>
+	</div>
+</body>
+
+</html>

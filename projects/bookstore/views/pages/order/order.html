@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>我的订单</title>
+	<link type="text/css" rel="stylesheet" href="/static/css/style.css">
+	<style type="text/css">
+		h1 {
+			text-align: center;
+			margin-top: 200px;
+		}
+	</style>
+</head>
+
+<body>
+
+	<div id="header">
+		<img class="logo_img" alt="" src="/static/img/blockchain.jpg">
+		<span class="wel_word">我的订单</span>
+
+		<div>
+			<a href="/pages/user/login.html">登录</a> |
+			<a href="/pages/user/regist.html">注册</a> &nbsp;&nbsp;
+			<a href="/cartquery">购物车</a>
+			<a href="/pages/manager/manager.html">后台管理</a>
+		</div>
+
+	</div>
+	
+	<div id="main">
+		<table>
+			{{if .}}
+			<tr>
+				<th>单号</th>
+				<th>日期</th>
+				<th>数量</th>
+				<th>金额</th>
+				<th>详情</th>
+				<th>发货</th>
+			</tr>
+			{{range .}}
+			<tr>
+					
+				<td>{{.ID}}</td>
+				<td>{{.Time}}</td>
+				<td>{{.TotalCount}}</td>
+				<td>{{.TotalAmount}}</td>
+				<td><a href="/orderInfo?orderId={{.ID}}">查看详情</a></td>
+				<td class="state">
+					{{if .SendComplate}}
+					<a href="/updateOrderState?orderID={{.ID}}&state=2">确认收货</a>
+					{{end}}
+					{{if  .NoSend}}
+					等待发货
+					{{end}}
+					{{if  .Complate}}
+					交易完成
+					{{end}}
+				</td>
+			</tr>
+			{{end}}
+			{{else}}
+			<h1 style="text-align: center">订单消失了，快去<a href="/mainbookpage" style="color:red">购物</a>吧！</h1>
+			{{end}}
+		</table>
+	</div>
+
+	<div id="bottom">
+		<span>
+			区块链书城.Copyright &copy;2018
+		</span>
+	</div>
+</body>
+
+</html>

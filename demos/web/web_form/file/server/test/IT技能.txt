@@ -1,0 +1,20 @@
+WanFi_98
+
+GO整理： basicGrammar webDev/gin/net(http/rpc/grpc/restful)   vendor/glide/govendor tools projects/book
+
+GO:gin  rpc/Jsonrpc/RestfulAPI/protobuf
+
+Web: 	bootstrap 
+	jquery 
+	vue/vuex/vue-router/vue-loader/vue-style-loader/vue-template-compiler 
+	webpack/copy-webpack-plugin/extract-text-webpack-plugin/friendly-errors-webpack-plugin/optimize-css-assets-webpack-plugin/html-webpack-plugin/webpack-bundle-analyzer/webpack-dev-server/webpack-merge/uglifyjs-webpack-plugin 
+	bable
+	postcss/postcss-url/postcss-loader/postcss-loader
+	less
+
+  
+  
+Gin 
+	1、router.Get() *
+	2、跨包访问 有Bug：No find fies
+	3、LoggerWithFormatter log
