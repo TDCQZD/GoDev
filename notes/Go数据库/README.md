@@ -65,6 +65,10 @@ Go没有内置的驱动支持任何的数据库，但是Go定义了database/sql�
 
 [TiDB](TiDB.md)
 ## GO数据库处理 框架
+### gorm
+* https://github.com/jinzhu/gorm
+* http://gorm.io/
+* http://gorm.book.jasperxu.com/
 ### xrom
 * https://github.com/go-xorm/xorm
 * http://xorm.io/docs
@@ -77,8 +81,7 @@ beego orm是beego自带的orm框架库
 * https://github.com/astaxie/beego/tree/master/orm
 
 [beego orm使用示例](../GoWeb框架/beego/DB.md)
-### gorm
-* https://github.com/jinzhu/gorm
+
 ### sqlx
 * https://github.com/jmoiron/sqlx
 ### xormplus/xorm

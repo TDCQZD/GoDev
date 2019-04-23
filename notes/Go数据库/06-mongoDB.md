@@ -15,3 +15,15 @@ To import this package, add the following line to your code:
 import "gopkg.in/mgo.v2"
 ```
 ## 示例
+
+## 阿里云ESC 安装mongoDB 设置远程连接
+1. 修改mongo.conf 
+```
+$ vim mongo.conf 
+bind_ip = 0.0.0.0
+auth = false
+```
+2. 启动mongo
+```
+mongod -f mongo.conf 
+```
