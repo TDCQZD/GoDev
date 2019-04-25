@@ -52,13 +52,7 @@ func GetFileInfo(file *os.File){
 	FileInfo.Name(),FileInfo.Size(),FileInfo.Mode(),FileInfo.ModTime(),FileInfo.IsDir(),FileInfo.Sys())
 	
 }
-//错误检查
-func CheckError(err error) {
-    if err != nil {
-		log.Fatal(err)
-        // panic(err)
-    }
-}
+
 
 type charCount struct {
 	ChCount    int //英文
