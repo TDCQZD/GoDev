@@ -63,3 +63,5 @@ import "github.com/olivere/elastic"
 ```
 ## 参考资料
 * https://www.elastic.co/guide/en/elasticsearch/reference/current/getting-started.html
+* https://www.elastic.co/guide/cn/elasticsearch/guide/current/index.html
+* https://es.xiaoleilu.com/index.html
