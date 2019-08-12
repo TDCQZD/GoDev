@@ -87,3 +87,5 @@ beego orm是beego自带的orm框架库
 ### xormplus/xorm
 * https://github.com/xormplus/xorm
 
+## gorm&xrom
+
