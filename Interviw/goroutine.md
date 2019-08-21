@@ -31,3 +31,47 @@ golang 的 select 就是监听 IO 操作，当 IO 操作发生时，触发相应
 在执行select语句的时候，运行时系统会自上而下地判断每个case中的发送或接收操作是否可以被立即执行(立即执行：意思是当前Goroutine不会因此操作而被阻塞)
 
 select的用法与switch非常类似，由select开始一个新的选择块，每个选择条件由case语句来描述。与switch语句可以选择任何可使用相等比较的条件相比，select有比较多的限制，其中最大的一条限制就是**每个case语句里必须是一个IO操作，确切的说，应该是一个面向channel的IO操作**。
+
+## goroutine的超时控制
+### 1、利用select实现goroutine的超时控制
+select是通过线性扫描的方式监视文件描述符是否有变动. channnel在系统层面来说也是个文件描述符。 在golang里我们可以使用goroutine并发执行任务，接着使用select来监视每个任务的channel情况.  
+
+但如果这几个任务都长时间没有回复channel信息，如果我们又有超时timeout需求，那么我们可以使用起一个goroutine，这个goroutine任务逻辑启动sleep,等sleep之后回复channel信号。 
+```
+func main() {
+    timeout := make(chan bool, 1)
+    go func() {
+        time.Sleep(3 * time.Second) // sleep 3 second
+        timeout <- true
+    }()
+    ch := make(chan int)
+    select {
+    case <-ch:
+    case <-timeout:
+        fmt.Println("task is timeout!")
+    }
+} 
+```
+
+## goroutine退出
+- 1、channel＋select
+```
+go func() {
+    time.Sleep(1e9)
+    timeout <- true
+} ()
+
+select {
+    case <- ch:
+        //从ch中读取数据
+    case <-timeout:
+        //ch一直没有数据写入，超时触发timeout
+}
+```
+- 2、context包来实现上下文功能
+```
+  select {
+        case <-cxt.Done():
+            // do some clean...
+    }
+```
