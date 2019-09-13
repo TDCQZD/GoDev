@@ -1,0 +1,27 @@
+{"level":"INFO","timestamp":"2018-10-18 20:00:44.549","file":"main.go:59","msg":"Start to listening the incoming requests on http address: :8080"}
+{"level":"INFO","timestamp":"2018-10-18 20:00:45.098","file":"main.go:56","msg":"The router has been deployed successfully."}
+{"level":"INFO","timestamp":"2018-10-18 20:01:09.429","file":"main.go:59","msg":"Start to listening the incoming requests on http address: :8080"}
+{"level":"INFO","timestamp":"2018-10-18 20:01:09.457","file":"main.go:56","msg":"The router has been deployed successfully."}
+{"level":"DEBUG","timestamp":"2018-10-18 20:01:43.182","file":"user/create.go:27","msg":"username is: [admin], password is []"}
+{"level":"DEBUG","timestamp":"2018-10-18 20:01:54.487","file":"user/create.go:27","msg":"username is: [], password is [admin]"}
+{"level":"ERROR","timestamp":"2018-10-18 20:01:54.487","file":"user/create.go:30","msg":"Get an error","data":{"error":"Err - code: 20102, message: The user was not found. This is add message., error: username can not found in db: xx.xx.xx.xx"}}
+{"level":"DEBUG","timestamp":"2018-10-18 20:01:54.487","file":"user/create.go:34","msg":"err type is ErrUserNotFound"}
+{"level":"DEBUG","timestamp":"2018-10-18 20:02:08.088","file":"user/create.go:27","msg":"username is: [admin], password is [admin]"}
+{"level":"INFO","timestamp":"2018-10-18 20:16:48.706","file":"main.go:59","msg":"Start to listening the incoming requests on http address: :8080"}
+{"level":"INFO","timestamp":"2018-10-18 20:16:49.222","file":"main.go:56","msg":"The router has been deployed successfully."}
+{"level":"DEBUG","timestamp":"2018-10-18 20:17:22.842","file":"user/create.go:27","msg":"username is: [admin], password is [admin]"}
+{"level":"INFO","timestamp":"2018-10-18 20:20:54.158","file":"main.go:59","msg":"Start to listening the incoming requests on http address: :8080"}
+{"level":"INFO","timestamp":"2018-10-18 20:20:54.197","file":"main.go:56","msg":"The router has been deployed successfully."}
+{"level":"DEBUG","timestamp":"2018-10-18 20:24:22.500","file":"user/create.go:27","msg":"username is: [], password is [admin]"}
+{"level":"ERROR","timestamp":"2018-10-18 20:24:22.500","file":"user/create.go:30","msg":"Get an error","data":{"error":"Err - code: 20102, message: The user was not found. This is add message., error: username can not found in db: xx.xx.xx.xx"}}
+{"level":"DEBUG","timestamp":"2018-10-18 20:24:22.500","file":"user/create.go:34","msg":"err type is ErrUserNotFound"}
+{"level":"INFO","timestamp":"2018-10-18 20:33:45.884","file":"main.go:59","msg":"Start to listening the incoming requests on http address: :8080"}
+{"level":"INFO","timestamp":"2018-10-18 20:33:46.399","file":"main.go:56","msg":"The router has been deployed successfully."}
+{"level":"INFO","timestamp":"2018-10-19 10:08:55.084","file":"main.go:59","msg":"Start to listening the incoming requests on http address: :8080"}
+{"level":"INFO","timestamp":"2018-10-19 10:08:55.602","file":"main.go:56","msg":"The router has been deployed successfully."}
+{"level":"INFO","timestamp":"2018-10-19 10:14:22.508","file":"main.go:59","msg":"Start to listening the incoming requests on http address: :8080"}
+{"level":"INFO","timestamp":"2018-10-19 10:14:23.016","file":"main.go:56","msg":"The router has been deployed successfully."}
+{"level":"INFO","timestamp":"2018-10-19 10:14:25.932","file":"user/create.go:25","msg":"URL username: admin2"}
+{"level":"INFO","timestamp":"2018-10-19 10:14:25.948","file":"user/create.go:28","msg":"URL key param desc: test"}
+{"level":"INFO","timestamp":"2018-10-19 10:14:25.948","file":"user/create.go:31","msg":"Header Content-Type: application/json"}
+{"level":"DEBUG","timestamp":"2018-10-19 10:14:25.948","file":"user/create.go:33","msg":"username is: [admin], password is [admin]"}

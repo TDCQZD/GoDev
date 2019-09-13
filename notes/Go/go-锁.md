@@ -10,7 +10,6 @@ RWMutex可以创建为其他结构体的字段；零值为解锁状态。
 RWMutex类型的锁也和线程无关，可以由不同的线程加读取锁/写入和解读取锁/写入锁。
 
 
-
 RWMutex方法：
 
 * func (rw *RWMutex) Lock() 

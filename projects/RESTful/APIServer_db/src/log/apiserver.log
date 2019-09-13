@@ -1,0 +1,16 @@
+{"level":"ERROR","timestamp":"2018-10-18 19:49:44.770","file":"model/init.go:31","msg":"Database connection failed. Database name: ","data":{"error":"Error 1045: Access denied for user ''@'localhost' (using password: NO)"}}
+{"level":"ERROR","timestamp":"2018-10-18 19:49:44.796","file":"model/init.go:31","msg":"Database connection failed. Database name: ","data":{"error":"Error 1045: Access denied for user ''@'localhost' (using password: NO)"}}
+{"level":"INFO","timestamp":"2018-10-18 19:49:44.809","file":"main.go:59","msg":"Start to listening the incoming requests on http address: :8080"}
+{"level":"INFO","timestamp":"2018-10-18 19:49:45.413","file":"main.go:56","msg":"The router has been deployed successfully."}
+{"level":"INFO","timestamp":"2018-10-18 19:50:33.135","file":"config/config.go:75","msg":"Config file changed: e:\\GoProject\\src\\go_project_code\\APIServer\\RESTful\\APIServer_db\\src\\conf\\config.yaml"}
+{"level":"INFO","timestamp":"2018-10-18 19:50:33.152","file":"config/config.go:75","msg":"Config file changed: e:\\GoProject\\src\\go_project_code\\APIServer\\RESTful\\APIServer_db\\src\\conf\\config.yaml"}
+{"level":"INFO","timestamp":"2018-10-18 19:50:49.778","file":"config/config.go:75","msg":"Config file changed: e:\\GoProject\\src\\go_project_code\\APIServer\\RESTful\\APIServer_db\\src\\conf\\config.yaml"}
+{"level":"INFO","timestamp":"2018-10-18 19:50:50.012","file":"config/config.go:75","msg":"Config file changed: e:\\GoProject\\src\\go_project_code\\APIServer\\RESTful\\APIServer_db\\src\\conf\\config.yaml"}
+{"level":"INFO","timestamp":"2018-10-18 19:50:51.723","file":"config/config.go:75","msg":"Config file changed: e:\\GoProject\\src\\go_project_code\\APIServer\\RESTful\\APIServer_db\\src\\conf\\config.yaml"}
+{"level":"INFO","timestamp":"2018-10-18 19:50:51.765","file":"config/config.go:75","msg":"Config file changed: e:\\GoProject\\src\\go_project_code\\APIServer\\RESTful\\APIServer_db\\src\\conf\\config.yaml"}
+{"level":"INFO","timestamp":"2018-10-18 19:50:52.741","file":"config/config.go:75","msg":"Config file changed: e:\\GoProject\\src\\go_project_code\\APIServer\\RESTful\\APIServer_db\\src\\conf\\config.yaml"}
+{"level":"INFO","timestamp":"2018-10-18 19:50:52.859","file":"config/config.go:75","msg":"Config file changed: e:\\GoProject\\src\\go_project_code\\APIServer\\RESTful\\APIServer_db\\src\\conf\\config.yaml"}
+{"level":"INFO","timestamp":"2018-10-18 19:51:14.117","file":"main.go:59","msg":"Start to listening the incoming requests on http address: :8080"}
+{"level":"INFO","timestamp":"2018-10-18 19:51:14.634","file":"main.go:56","msg":"The router has been deployed successfully."}
+{"level":"INFO","timestamp":"2018-10-18 19:53:21.805","file":"main.go:59","msg":"Start to listening the incoming requests on http address: :8080"}
+{"level":"INFO","timestamp":"2018-10-18 19:53:21.835","file":"main.go:56","msg":"The router has been deployed successfully."}
